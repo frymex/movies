@@ -20,7 +20,7 @@ function Cache({ movie }: { movie: Movie }) {
 	const toast = useToast();
 	
 	const site_title = `${movie.movie_title}`
-	const site_description = `Смотерть фильм ${movie.movie_title} в ${movie.date}`
+	const site_description = `Купить билеты на фильм ${movie.movie_title} в ${movie.position} (${movie.date})`
 	const [param, setParam] = React.useState<string>("");
 
 	React.useEffect(() => {
