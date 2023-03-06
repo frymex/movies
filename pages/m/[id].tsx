@@ -14,13 +14,22 @@ import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import Head from "next/head";
+import React from "react";
 
 function Cache({ movie }: { movie: Movie }) {
 	const toast = useToast();
 	
 	const site_title = `${movie.movie_title}`
 	const site_description = `Смотерть фильм ${movie.movie_title} в ${movie.date}`
-	const site_url = window.location.href + movie.cache_id
+	const [param, setParam] = React.useState<string>("");
+
+	React.useEffect(() => {
+		setParam(window.location.href);
+	}, [])
+
+	const site_url = param + movie.cache_id
+
+	
 	const site_image = movie.picture_url
 
 	return (
