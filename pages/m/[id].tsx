@@ -13,9 +13,38 @@ import {
 import axios from "axios";
 import { GetStaticPaths, GetStaticProps } from "next";
 
+import Head from "next/head";
+
 function Cache({ movie }: { movie: Movie }) {
 	const toast = useToast();
+	
+	const site_title = `${movie.movie_title}`
+	const site_description = `Смотерть фильм ${movie.movie_title} в ${movie.date}`
+	const site_url = window.location.href + movie.cache_id
+	const site_image = movie.picture_url
+
 	return (
+		<>
+		<Head>
+
+			<title>{site_title}</title>
+			<meta name="title" content={site_title} />
+			<meta name="description" content={site_description} />
+
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content={site_url} />
+			<meta property="og:title" content={site_title} />
+			<meta property="og:description" content={site_description} />
+			<meta property="og:image" content={site_image} />
+
+			<meta property="twitter:card" content="summary_large_image" />
+			<meta property="twitter:url" content={site_url} />
+			<meta property="twitter:title" content={site_title} />
+			<meta property="twitter:description" content={site_description} />
+			<meta property="twitter:image" content={site_image}></meta>
+				
+		</Head>
+
 		<Stack w="full" paddingTop={10} direction="column" spacing={5}>
 			<Center w="full">
 				<Box
@@ -88,6 +117,7 @@ function Cache({ movie }: { movie: Movie }) {
 				</Box>
 			</Center>
 		</Stack>
+		</>
 	);
 }
 
