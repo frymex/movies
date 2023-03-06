@@ -72,7 +72,7 @@ function Cache({ movie }: { movie: Movie }) {
 						justifyContent="space-between"
 					>
 						<Box />
-						<IconButton
+						{/* <IconButton
 							opacity={"0.6"}
 							colorScheme={"blue"}
 							icon={<LinkIcon />}
@@ -90,7 +90,7 @@ function Cache({ movie }: { movie: Movie }) {
 								});
 							}}
 							_hover={{ opacity: "1" }}
-						></IconButton>
+						></IconButton> */}
 					</Stack>
 					<Image
 						minHeight={"400px"}
