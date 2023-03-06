@@ -71,26 +71,7 @@ function Cache({ movie }: { movie: Movie }) {
 						direction={"row"}
 						justifyContent="space-between"
 					>
-						<Box />
-						{/* <IconButton
-							opacity={"0.6"}
-							colorScheme={"blue"}
-							icon={<LinkIcon />}
-							aria-label="back"
-							onClick={() => {
-								navigator.clipboard.writeText(
-									window.location.href + movie.cache_id
-								);
-								toast({
-									status: "success",
-									title: "Успех!",
-									description: "Ссылка на фильм была скопирована.",
-									isClosable: true,
-									duration: 3000,
-								});
-							}}
-							_hover={{ opacity: "1" }}
-						></IconButton> */}
+					<Box />
 					</Stack>
 					<Image
 						minHeight={"400px"}
