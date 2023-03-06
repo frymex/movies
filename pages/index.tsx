@@ -20,16 +20,31 @@ import React from "react";
 export default function Home({ movies }: { movies: Movies[] }) {
 	const [value, setValue] = React.useState<string>(movies[0].position);
 	const [movie, setMovie] = React.useState<Movies | null>(null);
+	const [position, setPosition] = React.useState<string>("");
+	React.useEffect(() => {
+		setPosition(window.location.href);
+	}, [])
+
 
 	const toast = useToast();
 
 	return (
 		<>
 			<Head>
-				<meta name="description" content="Хотите посмотреть фильм в Израиле на русском языке? Тебе к нам" />
+
+				<meta property="og:locale" content="ru_RU" />
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content="CinemaSearch | Найди фильм на русском в кинотеатрах Израиля" />
+				<meta property="og:description" content="Фильмы на русском языке в кинотеатрах Израиля" />
+				<meta property="og:url" content={position} />
+				<meta property="og:site_name" content="CinemaSearch" />
+
+				<meta name="title" content="CinemaSearch | Найди фильм на русском в кинотеатрах Израиля" />
+				<meta name="description" content="Фильмы на русском языке в кинотеатрах Израиля" />
 				<meta name="keywords" content="Кино+На+Русском+В+Хайфе, Доктор+Стрендж+МУЛЬТИВСЕЛЕННОЙ, Кино+В+Израиле, Search+Movies, Поиск+Фильмов, Кино+В+Израиле, Кино на русском в хайфе, кино на русском в тель авиве, фильмы в хайфе, ДОКТОР СТРЕНДЖ В МУЛЬТИВСЕЛЕННОЙ ХАЙФА" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
+				
 			</Head>
 
 			{(movie === null && (
