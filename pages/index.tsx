@@ -14,8 +14,11 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { GetStaticProps } from "next";
+
 import Head from "next/head";
+
 import React from "react";
+
 
 export default function Home({ movies }: { movies: Movies[] }) {
 	const [value, setValue] = React.useState<string>(movies[0].position);
@@ -23,7 +26,9 @@ export default function Home({ movies }: { movies: Movies[] }) {
 	const [position, setPosition] = React.useState<string>("");
 	React.useEffect(() => {
 		setPosition(window.location.href);
-	}, [])
+	}, []);
+
+	
 
 
 	const toast = useToast();
@@ -31,6 +36,8 @@ export default function Home({ movies }: { movies: Movies[] }) {
 	return (
 		<>
 			<Head>
+
+				<title> CinemaSearch | Найди фильм на русском в кинотеатрах Израиля </title> 
 
 				<meta property="og:locale" content="ru_RU" />
 				<meta property="og:type" content="website" />
@@ -122,7 +129,7 @@ export default function Home({ movies }: { movies: Movies[] }) {
 											aria-label="back"
 											onClick={() => {
 												navigator.clipboard.writeText(
-													window.location.href + "m/" + movie.cache_id
+													window.location.href + "share/" + movie.cache_id
 												);
 												toast({
 													status: "success",
